@@ -1,8 +1,16 @@
 package route
 
-import "github.com/gin-gonic/gin"
+import (
+	"NotePad/api"
+
+	"github.com/gin-gonic/gin"
+)
 
 func NewRouter() *gin.Engine {
 	r := gin.Default()
+	v1 := r.Group("/v1")
+	{
+		v1.POST("/user/register", api.RegisterUserHandler)
+	}
 	return r
 }
