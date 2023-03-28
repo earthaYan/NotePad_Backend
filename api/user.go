@@ -8,7 +8,8 @@ import (
 
 func RegisterUserHandler(c *gin.Context) {
 	var userRegister service.RegisterUserService
-	if err := c.ShouldBind(&userRegister); err == nil {
+	
+	if  err := c.ShouldBind(&userRegister);err == nil {
 		res := userRegister.Register()
 		c.JSON(200, res)
 	} else {
